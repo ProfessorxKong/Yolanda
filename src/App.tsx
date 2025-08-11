@@ -1,7 +1,10 @@
-function App() {
+import HomePage from '@/pages/home'
+import styles from './App.module.scss'
+
+const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className={styles['App']}>
+      <HomePage />
     </div>
   )
 }
