@@ -9,4 +9,3 @@ export async function apiClient(path: string, init?: RequestInit) {
   if (!response.ok) throw new Error(`Request failed: ${response.status}`)
   return response
 }
-
