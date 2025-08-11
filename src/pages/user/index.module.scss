@@ -1,0 +1,131 @@
+.userPage {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color, #007bff);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-secondary, #666);
+    }
+  }
+
+  .content {
+    .profileSection {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+
+      .avatar {
+        .avatarPlaceholder {
+          width: 80px;
+          height: 80px;
+          background: #f8f9fa;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.5rem;
+          color: var(--text-secondary, #666);
+        }
+      }
+
+      .userInfo {
+        h2 {
+          font-size: 1.8rem;
+          margin-bottom: 8px;
+          color: var(--text-primary, #333);
+        }
+
+        p {
+          color: var(--text-secondary, #666);
+          margin-bottom: 12px;
+        }
+
+        .userType {
+          display: inline-block;
+          padding: 4px 12px;
+          background: linear-gradient(45deg, #007bff, #0056b3);
+          color: white;
+          border-radius: 16px;
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .settingsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+
+      .settingCard {
+        padding: 24px;
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        h3 {
+          font-size: 1.3rem;
+          margin-bottom: 16px;
+          color: var(--text-primary, #333);
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            padding: 10px 0;
+            color: var(--text-secondary, #666);
+            border-bottom: 1px solid #f1f3f4;
+            cursor: pointer;
+            transition: color 0.3s;
+
+            &:hover {
+              color: var(--primary-color, #007bff);
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      .profileSection {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .settingsGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

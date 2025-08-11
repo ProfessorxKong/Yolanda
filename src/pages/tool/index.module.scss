@@ -1,0 +1,84 @@
+.toolPage {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color, #007bff);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-secondary, #666);
+    }
+  }
+
+  .content {
+    .toolGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+
+      .toolCard {
+        padding: 30px 24px;
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+          border-color: var(--primary-color, #007bff);
+        }
+
+        .toolIcon {
+          font-size: 3rem;
+          margin-bottom: 16px;
+          display: block;
+        }
+
+        h3 {
+          font-size: 1.3rem;
+          margin-bottom: 12px;
+          color: var(--text-primary, #333);
+        }
+
+        p {
+          color: var(--text-secondary, #666);
+          margin-bottom: 20px;
+          line-height: 1.5;
+        }
+
+        .toolButton {
+          padding: 10px 24px;
+          background: var(--primary-color, #007bff);
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background: var(--primary-color-dark, #0056b3);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content .toolGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
