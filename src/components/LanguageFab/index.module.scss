@@ -1,0 +1,208 @@
+.language-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.fab-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.expanded {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    transform: rotate(45deg);
+  }
+}
+
+.current-flag {
+  font-size: 24px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.expand-icon {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  transition: all 0.3s ease;
+  opacity: 0;
+
+  .fab-button.expanded & {
+    opacity: 1;
+  }
+
+  .fab-button:not(.expanded) & {
+    opacity: 0;
+  }
+}
+
+.fab-button.expanded .current-flag {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.language-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+
+  &.expanded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+
+    .flag {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.flag {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .language-fab {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .fab-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .current-flag {
+    font-size: 20px;
+  }
+
+  .expand-icon {
+    font-size: 16px;
+  }
+
+  .language-option {
+    min-width: 100px;
+    padding: 6px 12px;
+  }
+
+  .flag {
+    font-size: 16px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}
+
+// 暗色模式支持
+@media (prefers-color-scheme: dark) {
+  .language-option {
+    background: rgba(30, 30, 30, 0.95);
+    color: white;
+
+    &:hover {
+      background: rgba(40, 40, 40, 1);
+    }
+
+    &.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+  }
+}
+
+// 动画关键帧
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// 首次加载动画
+.language-fab {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// 悬停时的脉动效果
+.fab-button:hover {
+  animation: pulse 2s infinite;
+}

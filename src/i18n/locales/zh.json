@@ -1,0 +1,14 @@
+{
+  "tabBar": {
+    "scholarSearch": "学术搜索",
+    "writing": "写作",
+    "tools": "工具",
+    "pricing": "定价",
+    "discover": "发现"
+  },
+  "language": {
+    "switchLanguage": "切换语言",
+    "english": "English",
+    "chinese": "中文"
+  }
+}

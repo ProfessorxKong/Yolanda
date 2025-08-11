@@ -1,10 +1,14 @@
+import React from 'react'
+import MainLayout from '@/layout/MainLayout'
 import HomePage from '@/pages/home'
 import styles from './App.module.scss'
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className={styles['App']}>
-      <HomePage />
+      <MainLayout>
+        <HomePage />
+      </MainLayout>
     </div>
   )
 }

@@ -1,0 +1,19 @@
+.mainLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  main {
+    flex: 1;
+    overflow-x: hidden;
+  }
+}

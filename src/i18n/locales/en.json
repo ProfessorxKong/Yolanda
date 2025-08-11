@@ -1,0 +1,14 @@
+{
+  "tabBar": {
+    "scholarSearch": "Scholar Search",
+    "writing": "Writing",
+    "tools": "Tools",
+    "pricing": "Pricing",
+    "discover": "Discover"
+  },
+  "language": {
+    "switchLanguage": "Switch Language",
+    "english": "English",
+    "chinese": "中文"
+  }
+}
