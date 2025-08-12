@@ -1,7 +1,7 @@
 import { PrivateRoute } from '../guards'
 import { MainLayout } from '@/layout'
 import { RouteConfig } from '../types'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 import { AppRoute } from '../paths'
 
 import HomePage from '@/pages/home'
@@ -23,7 +23,7 @@ export const appRoutes: RouteConfig[] = [
     children: [
       {
         path: '',
-        element: <Navigate to="/search" replace />,
+        element: <HomePage />,
         index: true,
       },
       {

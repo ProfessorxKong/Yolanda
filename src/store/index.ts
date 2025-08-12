@@ -3,6 +3,7 @@ import appReducer from '@/store/slices/appSlice'
 import chatNewReducer from '@/store/slices/chatNew'
 import routeReducer from './slices/route'
 import chatReducer from './slices/chat'
+import globalReducer from './slices/sideBar'
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     chatNew: chatNewReducer,
     route: routeReducer,
     chat: chatReducer,
+    global: globalReducer,
   },
 })
 
