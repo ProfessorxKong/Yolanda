@@ -1,28 +1,39 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import MainLayout from '@/layout/MainLayout'
-import HomePage from '@/pages/home'
-import SearchPage from '@/pages/search'
-import WritePage from '@/pages/write'
-import ToolPage from '@/pages/tool'
-import PricePage from '@/pages/price'
-import DiscoverPage from '@/pages/discover'
-import UserPage from '@/pages/user'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { RouteConfig } from './types'
 
-const AppRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Navigate to="/search" replace />} />
-        <Route path="home" element={<HomePage />} />
-        <Route path="search" element={<SearchPage />} />
-        <Route path="write" element={<WritePage />} />
-        <Route path="tool" element={<ToolPage />} />
-        <Route path="price" element={<PricePage />} />
-        <Route path="discover" element={<DiscoverPage />} />
-        <Route path="user" element={<UserPage />} />
-      </Route>
-    </Routes>
-  )
+interface AppRoutesProps {
+  routes: RouteConfig[]
 }
 
-export default AppRoutes
+const renderRoutes = (routes: RouteConfig[]) => {
+  return routes.map((route, index) => {
+    const key = route.path || index
+
+    if (route.children) {
+      return (
+        <Route key={key} path={route.path} element={route.element}>
+          {route.children.map((child, childIndex) => {
+            const childKey = `${key}-${child.path || childIndex}`
+
+            if (child.index) {
+              return <Route key={childKey} index element={child.element} />
+            }
+
+            return (
+              <Route key={childKey} path={child.path} element={child.element}>
+                {child.children && renderRoutes(child.children)}
+              </Route>
+            )
+          })}
+        </Route>
+      )
+    }
+
+    return <Route key={key} path={route.path} element={route.element} />
+  })
+}
+
+export const AppRoutes: React.FC<AppRoutesProps> = ({ routes }) => {
+  return <Routes>{renderRoutes(routes)}</Routes>
+}

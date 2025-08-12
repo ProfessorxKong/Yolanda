@@ -1,13 +1,13 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import AppRoutes from '@/router/AppRoutes'
+import { routes, AppRoutes } from '@/router'
 import styles from './App.module.scss'
 
 const App: React.FC = () => {
   return (
     <div className={styles['App']}>
       <BrowserRouter>
-        <AppRoutes />
+        <AppRoutes routes={routes} />
       </BrowserRouter>
     </div>
   )

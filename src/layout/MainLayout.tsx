@@ -1,21 +1,21 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import TabBar from '@/components/TabBar'
-import LanguageFab from '@/components/LanguageFab'
 import styles from './MainLayout.module.scss'
+import LanguageFab from '@/components/LanguageFab'
 
-const MainLayout: React.FC = () => {
+interface MainLayoutProps {
+  backgroundColor?: string
+}
+
+export const MainLayout: React.FC<MainLayoutProps> = () => {
   return (
-    <div className={styles.mainLayout}>
-      <header>
+    <div className={styles['main-layout']}>
+      <div className={styles['main-layout-content']}>
         <TabBar />
-      </header>
-      <main>
         <Outlet />
-      </main>
+      </div>
       <LanguageFab />
     </div>
   )
 }
-
-export default MainLayout
