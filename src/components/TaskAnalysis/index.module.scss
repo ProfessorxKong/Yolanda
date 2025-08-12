@@ -1,0 +1,365 @@
+// Chat start list container styles
+.chat-start-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  flex: 0 0 auto;
+  overflow-y: auto;
+  min-height: 0;
+  background: #ffffff;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+}
+
+.task-analysis-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #ffffff;
+}
+
+// Task item styles - maintain original start-node structure
+.start-node {
+  background: rgba(0, 87, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 87, 255, 0.1);
+    border-color: #d9d9d9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  // Only selected and expanded cards have blue border
+  &.selected-expanded {
+    border: 1px solid #0057ff;
+  }
+
+  &.selected {
+    border: 1px solid #0057ff;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.selected {
+      color: #ffffff;
+      // background-color: #ff4d4f;
+      border-radius: 6px;
+      padding: 8px;
+      margin: -8px;
+    }
+  }
+
+  &-title-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  &-content {
+    padding: 10px 12px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.task-number {
+  font-weight: bold;
+  font-size: 16px;
+  color: #61c554;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.task-icon {
+  color: #52c41a;
+  font-size: 16px;
+}
+
+.task-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.expand-icon {
+  color: #8c8c8c;
+  font-size: 12px;
+  padding: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #1890ff;
+  }
+}
+
+// Child task container styles
+.children-container {
+  margin-top: 8px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.child-node {
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 87, 255, 0.1);
+  }
+
+  &.selected {
+    color: #ffffff;
+    // background-color: #ff4d4f;
+    border-radius: 4px;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    line-height: 1.4;
+    gap: 8px;
+  }
+}
+
+.child-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.child-prefix {
+  font-weight: bold;
+  font-size: 16px;
+  color: #61c554;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.child-title {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+  min-width: 0;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.match-icon-big {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.task-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section {
+  background: rgba(0, 87, 255, 0.06);
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 87, 255, 0.1);
+    border-color: #d9d9d9;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 87, 255, 0.1);
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.task-number {
+  font-weight: bold;
+  font-size: 16px;
+  color: #61c554;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.match-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.expand-icon {
+  color: #8c8c8c;
+  font-size: 12px;
+  padding: 4px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #1890ff;
+  }
+}
+
+.section-content {
+  padding: 0 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(0, 87, 255, 0.05);
+    border-color: #d9d9d9;
+  }
+
+  &.selected {
+    color: #ffffff;
+    // background-color: #ff4d4f;
+    // border-color: #ff4d4f;
+  }
+}
+
+.task-text {
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.criteria-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.search-verify-node {
+  background: rgba(0, 87, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 87, 255, 0.1);
+    border-color: #d9d9d9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  &.selected {
+    border: 1px solid #0057ff;
+    // background-color: #ff4d4f;
+  }
+}
+
+.search-verify-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.task-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}

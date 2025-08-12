@@ -1,0 +1,502 @@
+.chat-start {
+  &-wrapper {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    color: #333;
+    // overflow: hidden; // 移除隐藏溢出，允许内容撑开
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    flex: 0 0 auto;
+    // max-height: 40%; // 移除最大高度限制
+    overflow-y: auto;
+    min-height: 0;
+    background: #ffffff;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 2px;
+    }
+  }
+}
+
+// Workflow title styles
+.workflow-title {
+  padding: 16px;
+  background: #ffffff;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.workflow-title-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+// Statistics section styles
+.stats-section {
+  background: #ffffff;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  :global(.ant-statistic) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  :global(.ant-statistic-title) {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333333;
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+
+  :global(.ant-statistic-content) {
+    margin-bottom: 0;
+  }
+}
+
+// Task item styles - maintain original start-node structure
+.start-node {
+  background: rgba(0, 87, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 87, 255, 0.1);
+    border-color: #d9d9d9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  // Only selected and expanded cards have blue border
+  &.selected-expanded {
+    border: 1px solid #0057ff;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.selected {
+      color: #ffffff;
+      // background-color: #ff4d4f;
+      border-radius: 6px;
+      padding: 8px;
+      margin: -8px;
+    }
+  }
+
+  &-title-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  &-content {
+    padding: 10px 12px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.task-number {
+  font-weight: bold;
+  font-size: 16px;
+  color: #61c554;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.task-icon {
+  color: #52c41a;
+  font-size: 16px;
+}
+
+.task-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.expand-icon {
+  color: #8c8c8c;
+  font-size: 12px;
+  padding: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #1890ff;
+  }
+}
+
+// Child task container styles
+.children-container {
+  margin-top: 8px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.child-node {
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 87, 255, 0.1);
+  }
+
+  &.selected {
+    color: #ffffff;
+    // background-color: #ff4d4f;
+    border-radius: 4px;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}
+
+.child-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.child-prefix {
+  font-weight: bold;
+  font-size: 16px;
+  color: #61c554;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.child-title {
+  font-size: 14px;
+  color: #333;
+}
+
+// Detail title styles
+.detail-title {
+  padding: 16px 0 4px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+// End content container styles
+.end-content {
+  margin: 16px;
+  padding-bottom: 16px;
+  background: #ffffff;
+  flex: 1;
+  border: 1px solid #0057ff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  // 添加滚动以防止整个页面被撑得太长
+  overflow-y: auto; // 移除这里的滚动，现在在end-node-content层级滚动
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+}
+
+// Task execution details card styles
+.end-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0; // 移除gap，避免影响固定布局
+  background: transparent;
+  transition: all 0.2s ease;
+  flex: 1;
+  height: 100%; // 确保占满父容器
+  // min-height: 0; // 移除，允许内容撑开
+
+  &-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    padding: 12px 16px 6px 16px; // 使用padding而不是margin
+    background: #ffffff; // 确保背景遮盖滚动内容
+    flex-shrink: 0; // 防止标题被压缩
+    position: sticky; // 粘性定位
+    top: 0; // 固定在顶部
+    z-index: 1; // 确保在内容之上
+  }
+
+  &-content {
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    scrollbar-width: none;
+    overflow-y: auto; // 恢复滚动，但只在content区域
+    flex: 1;
+    padding-top: 8px; // 添加顶部间距
+    // min-height: 0; // 移除，允许内容撑开
+
+    // 滚动条样式
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 2px;
+    }
+  }
+}
+
+.end-action-item {
+  display: flex;
+  flex-direction: column;
+  // padding: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-size: 12px;
+  // line-height: 1.5;
+  color: #333;
+  // background: rgba(0, 87, 255, 0.06);
+  border-radius: 8px;
+  border: none;
+  // transition: all 0.2s ease;
+  // flex: 1; // 移除固定flex，让内容自然撑开
+  // min-height: calc(1.5em * 7); // 移除最小高度限制
+  // max-height: 100%;
+  // overflow-y: auto; // 移除滚动
+  // overflow-x: hidden;
+  word-break: break-word;
+  // white-space: pre-wrap;
+
+  // &:hover {
+  //   background: rgba(0, 87, 255, 0.1);
+  // }
+
+  // 保留滚动条样式以备需要时使用
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// Special class for single end-action-item to fill space
+.end-action-item-single {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.action-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+// Additional styles: distinguish action and content
+.action-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1890ff;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 6px;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: #40a9ff;
+  }
+}
+.match-icon {
+  width: 14px;
+  height: 14px;
+  margin-top: 2.5px;
+  flex-shrink: 0;
+
+  &-big {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+}
+
+.partial-icon {
+  width: 14px;
+  height: 14px;
+  margin-top: 2.5px;
+}
+
+.fail-icon {
+  width: 14px;
+  height: 14px;
+  margin-top: 2.5px;
+}
+
+.json-content {
+  // overflow: hidden;
+  font-size: 14px;
+}
+
+.content-text {
+  font-size: 14px;
+  // line-height: 1.6;
+  padding: 4px 12px 4px 12px;
+  color: #333;
+  background: transparent;
+  border-radius: 12px;
+  border: none;
+  // white-space: pre-wrap;
+  word-break: break-word;
+  background-color: rgba(0, 87, 255, 0.1);
+  // min-height: 1.5em;
+  // max-height: 200px; // 移除最大高度限制
+  // overflow-y: auto; // 移除滚动
+
+  // 保留滚动条样式以备需要时使用
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+}
+
+.end-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  color: #8c8c8c;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}

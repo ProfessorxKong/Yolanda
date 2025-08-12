@@ -5,4 +5,3 @@ export const fetchPing = createAsyncThunk('app/fetchPing', async () => {
   const res = await apiClient('/ping')
   return res.text()
 })
-
