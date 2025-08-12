@@ -59,6 +59,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = React.memo(({ content,
     [],
   )
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rehypePlugins: any[] = React.useMemo(
     () => [
       rehypeRaw,

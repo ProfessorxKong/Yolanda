@@ -1,5 +1,5 @@
-.mainLayout {
-  min-height: 100vh;
+.main-layout {
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -13,6 +13,14 @@
   }
 
   main {
+    flex: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-layout-content {
     flex: 1;
     overflow-x: hidden;
     display: flex;

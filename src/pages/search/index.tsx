@@ -35,52 +35,52 @@ const Search = (): React.JSX.Element | null => {
     return null
   }
 
-  if (!round) {
-    return (
-      <div className={classNames(styles['chat-container'], styles['chat-container-empty'])}>
-        <div className={styles['empty-chat-message']}>
-          <SearchIcon />
-          <span>{t('chat.enterTopics')}</span>
-        </div>
-        <div className={styles['input-container-centered']}>
-          <div className={styles['input-wrapper']}>
-            <Input.TextArea
-              className={styles['input']}
-              value={inputValue}
-              onChange={(e) => {
-                setInputValue(e.target.value)
-                setIsButtonDisabled(!e.target.value.trim())
-              }}
-              placeholder={t('chat.typeMessage')}
-              autoSize={{ minRows: 2, maxRows: 6 }}
-              variant="borderless"
-              onCompositionStart={handleComposition}
-              onCompositionEnd={handleComposition}
-              onCompositionUpdate={handleComposition}
-              onPressEnter={async (e) => {
-                if (skipEnter.current || isTaskStart) {
-                  return
-                }
-                await handleKeyDown(e)
-              }}
-              // onBeforeInput={preventZeroWidthCharacters}
-            />
-          </div>
-          <div className={classNames(styles['operation-container'])}>
-            <Button
-              type="primary"
-              onClick={handleButtonClick}
-              icon={isTaskStart ? <PauseOutlined /> : <UpOutlined />}
-              className={classNames(styles['chat-send'], {
-                [styles['stop-send-stop']]: isTaskStart,
-              })}
-              disabled={isTaskStart || !inputValue.trim()}
-            />
-          </div>
-        </div>
-      </div>
-    )
-  }
+  // if (!round) {
+  //   return (
+  //     <div className={classNames(styles['chat-container'], styles['chat-container-empty'])}>
+  //       <div className={styles['empty-chat-message']}>
+  //         <SearchIcon />
+  //         <span>{t('chat.enterTopics')}</span>
+  //       </div>
+  //       <div className={styles['input-container-centered']}>
+  //         <div className={styles['input-wrapper']}>
+  //           <Input.TextArea
+  //             className={styles['input']}
+  //             value={inputValue}
+  //             onChange={(e) => {
+  //               setInputValue(e.target.value)
+  //               setIsButtonDisabled(!e.target.value.trim())
+  //             }}
+  //             placeholder={t('chat.typeMessage')}
+  //             autoSize={{ minRows: 2, maxRows: 6 }}
+  //             variant="borderless"
+  //             onCompositionStart={handleComposition}
+  //             onCompositionEnd={handleComposition}
+  //             onCompositionUpdate={handleComposition}
+  //             onPressEnter={async (e) => {
+  //               if (skipEnter.current || isTaskStart) {
+  //                 return
+  //               }
+  //               await handleKeyDown(e)
+  //             }}
+  //             // onBeforeInput={preventZeroWidthCharacters}
+  //           />
+  //         </div>
+  //         <div className={classNames(styles['operation-container'])}>
+  //           <Button
+  //             type="primary"
+  //             onClick={handleButtonClick}
+  //             icon={isTaskStart ? <PauseOutlined /> : <UpOutlined />}
+  //             className={classNames(styles['chat-send'], {
+  //               [styles['stop-send-stop']]: isTaskStart,
+  //             })}
+  //             disabled={isTaskStart || !inputValue.trim()}
+  //           />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className={`${styles['chat-container']}`} ref={inputAreaRef}>
