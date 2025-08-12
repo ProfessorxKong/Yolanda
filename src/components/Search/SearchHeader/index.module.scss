@@ -1,0 +1,18 @@
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+
+  .header-title p {
+    font-size: 34px;
+    margin-bottom: 26px;
+    color: var(--primary-color, #23282f);
+    font-weight: 600;
+  }
+
+  .header-subtitle p {
+    font-size: 18px;
+    color: var(--text-secondary, #23282f);
+    font-weight: 400;
+    line-height: 24px;
+  }
+}

@@ -17,8 +17,8 @@
       "grpoAfter2024": "2024 年之后的 GRPO 相关论文",
       "acl2025BestPaper": "ACL 2025 最佳论文"
     },
-    "title": "学术搜索",
-    "subtitle": "搜索学术论文与学术内容",
+    "title": "深度搜索",
+    "subtitle": "一个强大的、智能的搜索引擎，用于学术研究和全面的信息发现。",
     "tryExamples": "试试这些示例",
     "placeholder": "输入你的检索问题..."
   }

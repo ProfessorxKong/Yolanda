@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import SearchButton from '@/components/SearchButton'
+import SearchButton from '@/components/Search/SearchButton'
 import styles from './index.module.scss'
 
 export type SearchContainerProps = {
