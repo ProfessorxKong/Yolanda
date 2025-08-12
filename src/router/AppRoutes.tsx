@@ -12,7 +12,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Navigate to="/home" replace />} />
+        <Route index element={<Navigate to="/search" replace />} />
         <Route path="home" element={<HomePage />} />
         <Route path="search" element={<SearchPage />} />
         <Route path="write" element={<WritePage />} />

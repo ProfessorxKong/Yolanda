@@ -10,5 +10,15 @@
     "switchLanguage": "Switch Language",
     "english": "English",
     "chinese": "中文"
+  },
+  "search": {
+    "examples": {
+      "qloraPapers": "Give some papers related to QLora",
+      "grpoAfter2024": "Papers about GRPO after 2024",
+      "acl2025BestPaper": "ACL 2025 Best Paper"
+    },
+    "title": "Scholar Search",
+    "subtitle": "Search academic papers and scholarly content",
+    "tryExamples": "Try Our Examples"
   }
 }

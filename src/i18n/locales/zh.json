@@ -10,5 +10,15 @@
     "switchLanguage": "切换语言",
     "english": "English",
     "chinese": "中文"
+  },
+  "search": {
+    "examples": {
+      "qloraPapers": "给出一些与 QLora 相关的论文",
+      "grpoAfter2024": "2024 年之后的 GRPO 相关论文",
+      "acl2025BestPaper": "ACL 2025 最佳论文"
+    },
+    "title": "学术搜索",
+    "subtitle": "搜索学术论文与学术内容",
+    "tryExamples": "试试这些示例"
   }
 }

@@ -1,7 +1,12 @@
-.searchPage {
+.search-page {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 
   .header {
     text-align: center;
@@ -20,7 +25,7 @@
   }
 
   .content {
-    .searchContainer {
+    .search-container {
       display: flex;
       gap: 10px;
       margin-bottom: 30px;
@@ -28,7 +33,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      .searchInput {
+      .search-input {
         flex: 1;
         padding: 12px 16px;
         border: 1px solid #ddd;
@@ -41,7 +46,7 @@
         }
       }
 
-      .searchButton {
+      .search-button {
         padding: 12px 24px;
         background: var(--primary-color, #007bff);
         color: white;
@@ -65,5 +70,36 @@
     //   text-align: center;
     //   color: var(--text-secondary, #666);
     // }
+  }
+  .footer-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 16px;
+      line-height: 22px;
+      color: #23282f;
+    }
+  }
+  .footer-content-items {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    .footer-content-item {
+      cursor: pointer;
+      width: 325px;
+      height: 43px;
+      background: #fff;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 14px;
+        color: #23282f;
+        line-height: 19px;
+      }
+    }
   }
 }
