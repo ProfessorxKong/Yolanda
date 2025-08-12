@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  // width: 100%;
+  width: 1200px;
+  height: 38px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-radius: 32px;
+  background: #fff;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  padding: 8px 4px;
+}

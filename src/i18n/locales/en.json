@@ -19,6 +19,7 @@
     },
     "title": "Scholar Search",
     "subtitle": "Search academic papers and scholarly content",
-    "tryExamples": "Try Our Examples"
+    "tryExamples": "Try Our Examples",
+    "placeholder": "Enter your search query..."
   }
 }

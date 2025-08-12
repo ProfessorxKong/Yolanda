@@ -19,6 +19,7 @@
     },
     "title": "学术搜索",
     "subtitle": "搜索学术论文与学术内容",
-    "tryExamples": "试试这些示例"
+    "tryExamples": "试试这些示例",
+    "placeholder": "输入你的检索问题..."
   }
 }

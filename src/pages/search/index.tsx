@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SEARCH_EXAMPLE_KEYS } from '@/constants'
+import SearchContainer from '@/components/SearchContainer'
 import styles from './index.module.scss'
 
 const SearchPage: React.FC = () => {
   const { t } = useTranslation()
+  const [query, setQuery] = useState('')
+  const isDisabled = useMemo(() => query.trim().length === 0, [query])
+
+  const handleSearch = () => {
+    if (isDisabled) return
+    // TODO: integrate actual search
+    // eslint-disable-next-line no-console
+    console.log('Search:', query)
+  }
   return (
     <div className={styles['search-page']}>
       <div className={styles['header']}>
@@ -12,13 +22,13 @@ const SearchPage: React.FC = () => {
         <p>{t('search.subtitle')}</p>
       </div>
       <div className={styles['content']}>
-        <div className={styles['search-container']}>
-          <input
-            type="text"
-            placeholder="Enter your search query..."
-            className={styles['search-input']}
+        <div className={styles['search-row']}>
+          <SearchContainer
+            value={query}
+            onChange={setQuery}
+            onSearch={handleSearch}
+            placeholder={t('search.placeholder')}
           />
-          <button className={styles['search-button']}>Search</button>
         </div>
         {/* <div className={styles.results}> */}
         {/* Search results will be displayed here */}
