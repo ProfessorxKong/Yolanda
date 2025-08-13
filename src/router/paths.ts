@@ -1,4 +1,4 @@
-const Home = '/'
+const Home = '/home'
 const Search = '/search'
 const Write = '/write'
 const Tool = '/tool'
